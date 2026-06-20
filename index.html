@@ -14,7 +14,55 @@ body {
     line-height: 1.7;
 }
 
-/* HERO */
+/* ===== HEADER ===== */
+header {
+    background: #000;
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 14px 20px;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.logo img {
+    height: 48px;
+}
+
+.header-text {
+    text-align: center;
+    flex: 1;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.header-text p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.header-btn a {
+    background: #ffd400;
+    color: #000;
+    padding: 10px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* ===== HERO ===== */
 .hero {
     position: relative;
     height: 70vh;
@@ -25,150 +73,119 @@ body {
     justify-content: center;
 }
 
-/* 黒オーバーレイ */
 .hero::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(0,0,0,0.55);
 }
 
-/* HERO中身 */
 .hero-content {
     position: relative;
     text-align: center;
-    max-width: 900px;
-    padding: 20px;
 }
 
-.hero h1 {
-    font-size: 42px;
+.hero h2 {
+    font-size: 38px;
     margin: 0;
-    letter-spacing: 2px;
 }
 
 .hero p {
-    color: #ddd;
-    margin-top: 10px;
+    color: #ccc;
 }
 
-/* ロゴ（左上固定） */
-.logo {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    z-index: 10;
-}
-
-.logo img {
-    height: 55px;
-}
-
-/* CTA */
 .btn {
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 14px;
     background: #ffd400;
     color: #000;
     padding: 14px 22px;
     border-radius: 999px;
-    font-weight: 600;
+    font-weight: bold;
     text-decoration: none;
 }
 
-/* セクション */
+/* ===== SECTION ===== */
 section {
     max-width: 900px;
     margin: 50px auto;
     padding: 0 20px;
 }
 
-/* カード */
-<div class="card">
-    <h2>PRICE（年齢別コース）</h2>
+/* ===== CARD ===== */
+.card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
 
-    <div class="course">
-        <h3 style="color:#ffd400;">① U-8コース（小学1〜2年）</h3>
-        <p>
-        ¥5,000 / month<br>
-        楽しさ重視・ボール慣れ・基礎運動能力の向上
-        </p>
-    </div>
+h2 {
+    color: #ffd400;
+}
 
-    <div class="course">
-        <h3 style="color:#ffd400;">② U-10コース（小学3〜4年）</h3>
-        <p>
-        ¥7,500 / month<br>
-        基礎技術＋判断力の導入・1vs1強化
-        </p>
-    </div>
-
-    <div class="course">
-        <h3 style="color:#ffd400;">③ U-12コース（小学5〜6年）</h3>
-        <p>
-        ¥9,000 / month<br>
-        実戦・戦術理解・サッカーIQ強化
-        </p>
-    </div>
-</div>
-
-/* スケジュール */
-.schedule {
+/* ===== GRID ===== */
+.grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
 
-.day {
+.box {
     background: #151515;
     border: 1px solid #222;
+    padding: 14px;
+    border-radius: 14px;
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ===== LINE ===== */
+.line-box {
+    border: 1px solid #ffd400;
+    background: rgba(255,212,0,0.05);
     padding: 14px;
     border-radius: 14px;
     text-align: center;
 }
 
-/* LINE */
-.line-box {
-    border: 1px solid #ffd400;
-    background: rgba(255, 212, 0, 0.05);
-    padding: 15px;
-    border-radius: 14px;
-    text-align: center;
-}
-
-/* フォーム */
+/* ===== FORM ===== */
 input, textarea {
     width: 100%;
     padding: 12px;
     margin-top: 8px;
     margin-bottom: 12px;
-    border-radius: 12px;
+    border-radius: 10px;
     border: 1px solid #333;
     background: #0f0f0f;
     color: white;
 }
 
-/* フッター */
+/* ===== FOOTER ===== */
 footer {
     text-align: center;
-    padding: 30px;
-    font-size: 12px;
-    color: #666;
+    padding: 40px 20px;
     border-top: 1px solid #222;
+    color: #666;
+    font-size: 12px;
 }
 
-/* スマホ */
-@media (max-width: 600px) {
-    .hero h1 {
-        font-size: 26px;
-    }
-
-    .schedule {
-        grid-template-columns: 1fr;
-    }
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr 1fr; }
+    .hero h2 { font-size: 26px; }
 }
 </style>
 
@@ -176,78 +193,122 @@ footer {
 
 <body>
 
+<!-- HEADER -->
+<header>
+    <div class="header-inner">
+
+        <div class="logo">
+            <img src="vertex-logo.png">
+        </div>
+
+        <div class="header-text">
+            <h1>VERTEX FOOTBALL</h1>
+            <p>考える力を育てるサッカーアカデミー</p>
+        </div>
+
+        <div class="header-btn">
+            <a href="#contact">体験</a>
+        </div>
+
+    </div>
+</header>
+
 <!-- HERO -->
 <div class="hero">
-
-    <div class="logo">
-        <img src="vertex-logo.png" alt="VERTEX LOGO">
-    </div>
-
     <div class="hero-content">
-        <h1>VERTEX FOOTBALL ACADEMY</h1>
-        <p>黒×黄で磨く「考えるサッカー」</p>
+        <h2>未来を変えるサッカーを</h2>
+        <p>黒×黄の育成型フットボールアカデミー</p>
         <a class="btn" href="#contact">無料体験はこちら</a>
     </div>
 </div>
 
 <section>
 
+<!-- CONCEPT -->
 <div class="card">
     <h2>CONCEPT</h2>
-    <p>
-    サッカーを“ただの習い事”で終わらせない。<br>
-    判断力・技術・サッカーIQを育てるスクール。
-    </p>
+    <p>サッカーを“習い事”で終わらせない。判断力・技術・思考力を育てる。</p>
 </div>
 
+<!-- COACH + ACHIEVEMENT -->
 <div class="card">
-    <h2>COACH</h2>
+    <h2>COACH / WATARU</h2>
+
     <p>
-    <b>Wataru</b><br>
-    ジュニア指導経験あり<br>
-    個人技・判断力専門トレーニング
+    ジュニア年代指導経験あり。個人技・判断力育成に特化。
     </p>
+
+    <div class="box">
+        <b>実績</b><br>
+        ・ジュニア指導経験あり<br>
+        ・初心者から選抜レベル育成<br>
+        ・レギュラー定着率向上<br>
+        ・判断力育成メソッド構築
+    </div>
 </div>
 
+<!-- SCHEDULE -->
 <div class="card">
     <h2>SCHEDULE（土日）</h2>
 
-    <div class="schedule">
-        <div class="day">SAT 09:00–11:00<br>TECH</div>
-        <div class="day">SAT 13:00–15:00<br>GAME</div>
-        <div class="day">SUN 09:00–11:00<br>IQ TRAIN</div>
-        <div class="day">SUN 13:00–15:00<br>MATCH</div>
+    <div class="grid">
+        <div class="box">SAT 09-11 TECH</div>
+        <div class="box">SAT 13-15 GAME</div>
+        <div class="box">SUN 09-11 IQ</div>
+        <div class="box">SUN 13-15 MATCH</div>
     </div>
 </div>
 
+<!-- COURSE -->
 <div class="card">
-    <h2>LOCATION</h2>
-    <p>横浜市・瀬谷区周辺フットサルコート</p>
+    <h2>COURSE</h2>
+
+    <div class="box">U-8：¥5,000（基礎・楽しさ）</div>
+    <div class="box">U-10：¥7,500（技術＋判断）</div>
+    <div class="box">U-12：¥9,000（戦術＋実戦）</div>
 </div>
 
+<!-- GALLERY -->
 <div class="card">
-    <h2>PRICE</h2>
-    <p>¥12,000 – ¥15,000 / month</p>
+    <h2>TRAINING GALLERY</h2>
+
+    <div class="gallery">
+        <img src="img1.jpg">
+        <img src="img2.jpg">
+        <img src="img3.jpg">
+    </div>
 </div>
 
+<!-- FAQ -->
 <div class="card">
     <h2>FAQ</h2>
-    <p><b>初心者OK？</b><br>問題なし</p>
-    <p><b>体験ある？</b><br>あり（調整中）</p>
+
+    <div class="box">初心者OK？ → OK</div>
+    <div class="box">体験ある？ → あり</div>
+    <div class="box">途中参加？ → 可能</div>
 </div>
 
-<!-- CONTACT -->
+<!-- MAP -->
+<div class="card">
+    <h2>ACCESS</h2>
+
+    <div class="box">
+        Google Mapをここに埋め込み<br>
+        （iframe貼り付け）
+    </div>
+</div>
+
+<!-- LINE -->
 <div class="card" id="contact">
-    <h2>CONTACT</h2>
+    <h2>LINE / CONTACT</h2>
 
     <div class="line-box">
-        <p><b>LINEで体験申込</b></p>
-        <p>最速で返信します</p>
+        LINEで体験申込・相談受付中
     </div>
 
-    <a class="btn" href="#">LINEで問い合わせる</a>
+    <a class="btn" href="#">LINE追加はこちら</a>
 
-    <form style="margin-top:20px;">
+    <form>
         <input type="text" placeholder="名前">
         <input type="text" placeholder="学年">
         <input type="text" placeholder="連絡先">
