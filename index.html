@@ -14,44 +14,69 @@ body {
     line-height: 1.7;
 }
 
-/* ヘッダー */
-header {
-    background: #000;
-    padding: 30px 20px;
-    border-bottom: 1px solid #222;
-}
-
-.header-inner {
+/* HERO */
+.hero {
+    position: relative;
+    height: 70vh;
+    min-height: 420px;
+    background: url("hero.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: 1100px;
-    margin: auto;
+    justify-content: center;
 }
 
-/* ロゴ */
+/* 黒オーバーレイ */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.55);
+}
+
+/* HERO中身 */
+.hero-content {
+    position: relative;
+    text-align: center;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    color: #ddd;
+    margin-top: 10px;
+}
+
+/* ロゴ（左上固定） */
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    z-index: 10;
+}
+
 .logo img {
     height: 55px;
-    filter: brightness(1.2);
 }
 
-/* タイトル */
-.header-text {
-    text-align: center;
-    flex: 1;
-}
-
-.header-text h1 {
-    margin: 0;
-    font-size: 34px;
-    letter-spacing: 2px;
+/* CTA */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: #ffd400;
+    color: #000;
+    padding: 14px 22px;
+    border-radius: 999px;
     font-weight: 600;
-}
-
-.header-text p {
-    margin-top: 6px;
-    font-size: 14px;
-    color: #bbb;
+    text-decoration: none;
 }
 
 /* セクション */
@@ -61,27 +86,34 @@ section {
     padding: 0 20px;
 }
 
-/* カード（Apple風ミニマル） */
-.card {
-    background: #111;
-    border: 1px solid #222;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 18px;
-}
+/* カード */
+<div class="card">
+    <h2>PRICE（年齢別コース）</h2>
 
-/* 見出し */
-h2 {
-    color: #ffd400;
-    font-weight: 600;
-    margin-top: 0;
-    letter-spacing: 1px;
-}
+    <div class="course">
+        <h3 style="color:#ffd400;">① U-8コース（小学1〜2年）</h3>
+        <p>
+        ¥5,000 / month<br>
+        楽しさ重視・ボール慣れ・基礎運動能力の向上
+        </p>
+    </div>
 
-/* サブ */
-p {
-    color: #ddd;
-}
+    <div class="course">
+        <h3 style="color:#ffd400;">② U-10コース（小学3〜4年）</h3>
+        <p>
+        ¥7,500 / month<br>
+        基礎技術＋判断力の導入・1vs1強化
+        </p>
+    </div>
+
+    <div class="course">
+        <h3 style="color:#ffd400;">③ U-12コース（小学5〜6年）</h3>
+        <p>
+        ¥9,000 / month<br>
+        実戦・戦術理解・サッカーIQ強化
+        </p>
+    </div>
+</div>
 
 /* スケジュール */
 .schedule {
@@ -98,37 +130,13 @@ p {
     text-align: center;
 }
 
-/* Q&A */
-.qa h3 {
-    color: #ffd400;
-    margin-bottom: 5px;
-}
-
-/* LINE枠 */
+/* LINE */
 .line-box {
     border: 1px solid #ffd400;
     background: rgba(255, 212, 0, 0.05);
     padding: 15px;
     border-radius: 14px;
     text-align: center;
-}
-
-/* ボタン（Apple風） */
-.btn {
-    display: inline-block;
-    background: #ffd400;
-    color: #000;
-    padding: 14px 22px;
-    border-radius: 999px;
-    font-weight: 600;
-    text-decoration: none;
-    margin-top: 12px;
-    transition: 0.2s;
-}
-
-.btn:hover {
-    transform: scale(1.03);
-    opacity: 0.9;
 }
 
 /* フォーム */
@@ -154,17 +162,12 @@ footer {
 
 /* スマホ */
 @media (max-width: 600px) {
-    .header-inner {
-        flex-direction: column;
-        gap: 10px;
+    .hero h1 {
+        font-size: 26px;
     }
 
     .schedule {
         grid-template-columns: 1fr;
-    }
-
-    .header-text h1 {
-        font-size: 24px;
     }
 }
 </style>
@@ -173,21 +176,19 @@ footer {
 
 <body>
 
-<header>
-    <div class="header-inner">
+<!-- HERO -->
+<div class="hero">
 
-        <div class="logo">
-            <img src="vertex-logo.png" alt="VERTEX LOGO">
-        </div>
-
-        <div class="header-text">
-            <h1>VERTEX FOOTBALL ACADEMY</h1>
-            <p>黒×黄で磨く「考えるサッカー」</p>
-        </div>
-
-        <div style="width:60px;"></div>
+    <div class="logo">
+        <img src="vertex-logo.png" alt="VERTEX LOGO">
     </div>
-</header>
+
+    <div class="hero-content">
+        <h1>VERTEX FOOTBALL ACADEMY</h1>
+        <p>黒×黄で磨く「考えるサッカー」</p>
+        <a class="btn" href="#contact">無料体験はこちら</a>
+    </div>
+</div>
 
 <section>
 
@@ -195,7 +196,7 @@ footer {
     <h2>CONCEPT</h2>
     <p>
     サッカーを“ただの習い事”で終わらせない。<br>
-    判断力・技術・思考力を育てる育成型スクール。
+    判断力・技術・サッカーIQを育てるスクール。
     </p>
 </div>
 
@@ -203,9 +204,8 @@ footer {
     <h2>COACH</h2>
     <p>
     <b>Wataru</b><br>
-    ジュニア年代指導経験あり<br>
-    個人技・判断力トレーニング専門<br>
-    「できた」を積み重ねる指導
+    ジュニア指導経験あり<br>
+    個人技・判断力専門トレーニング
     </p>
 </div>
 
@@ -222,7 +222,7 @@ footer {
 
 <div class="card">
     <h2>LOCATION</h2>
-    <p>横浜市・瀬谷区周辺フットサルコート / 公園</p>
+    <p>横浜市・瀬谷区周辺フットサルコート</p>
 </div>
 
 <div class="card">
@@ -232,50 +232,26 @@ footer {
 
 <div class="card">
     <h2>FAQ</h2>
-
-    <div class="qa">
-        <h3>初心者でもOK？</h3>
-        <p>問題ありません。基礎から指導します。</p>
-    </div>
-
-    <div class="qa">
-        <h3>体験はある？</h3>
-        <p>体験セッションあり（調整中）</p>
-    </div>
-
-    <div class="qa">
-        <h3>途中参加できる？</h3>
-        <p>いつでも参加可能です。</p>
-    </div>
+    <p><b>初心者OK？</b><br>問題なし</p>
+    <p><b>体験ある？</b><br>あり（調整中）</p>
 </div>
 
-<div class="card">
-    <h2>LINE</h2>
+<!-- CONTACT -->
+<div class="card" id="contact">
+    <h2>CONTACT</h2>
 
     <div class="line-box">
-        <p><b>体験申込・相談はこちら</b></p>
-        <p>LINEで直接やり取りできます</p>
+        <p><b>LINEで体験申込</b></p>
+        <p>最速で返信します</p>
     </div>
 
     <a class="btn" href="#">LINEで問い合わせる</a>
-</div>
 
-<div class="card">
-    <h2>TRIAL FORM</h2>
-
-    <form>
-        <label>名前</label>
-        <input type="text">
-
-        <label>学年</label>
-        <input type="text">
-
-        <label>連絡先</label>
-        <input type="text">
-
-        <label>質問</label>
-        <textarea rows="4"></textarea>
-
+    <form style="margin-top:20px;">
+        <input type="text" placeholder="名前">
+        <input type="text" placeholder="学年">
+        <input type="text" placeholder="連絡先">
+        <textarea rows="4" placeholder="質問"></textarea>
         <button class="btn" type="submit">送信</button>
     </form>
 </div>
