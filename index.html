@@ -6,34 +6,35 @@
 <title>VERTEX FOOTBALL ACADEMY</title>
 
 <style>
+/* =====================
+   BASE
+===================== */
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial;
-    background: #0b0b0b;
-    color: #f5f5f5;
+    background: #f7fbff;
+    color: #222;
     line-height: 1.7;
 }
 
-/* ===== HEADER ===== */
+/* =====================
+   HEADER
+===================== */
 header {
-    background: #000;
-    border-bottom: 1px solid #222;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background: linear-gradient(90deg, #4fc3f7, #29b6f6);
     padding: 14px 20px;
 }
 
 .header-inner {
+    max-width: 1100px;
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1100px;
-    margin: auto;
 }
 
 .logo img {
-    height: 48px;
+    height: 50px;
 }
 
 .header-text {
@@ -44,25 +45,27 @@ header {
 .header-text h1 {
     margin: 0;
     font-size: 22px;
+    color: #fff;
 }
 
 .header-text p {
     margin: 2px 0 0;
     font-size: 12px;
-    color: #aaa;
+    color: #eaf6ff;
 }
 
 .header-btn a {
-    background: #ffd400;
-    color: #000;
+    background: #ff9800;
+    color: #fff;
     padding: 10px 14px;
     border-radius: 999px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 12px;
 }
 
-/* ===== HERO ===== */
+/* =====================
+   HERO
+===================== */
 .hero {
     position: relative;
     height: 70vh;
@@ -77,12 +80,14 @@ header {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.55);
+    background: rgba(0,0,0,0.35);
 }
 
 .hero-content {
     position: relative;
     text-align: center;
+    color: white;
+    padding: 20px;
 }
 
 .hero h2 {
@@ -91,41 +96,50 @@ header {
 }
 
 .hero p {
-    color: #ccc;
+    margin-top: 8px;
+    color: #f0f0f0;
 }
 
 .btn {
     display: inline-block;
     margin-top: 14px;
-    background: #ffd400;
-    color: #000;
+    background: #ff9800;
+    color: white;
     padding: 14px 22px;
     border-radius: 999px;
-    font-weight: bold;
     text-decoration: none;
+    font-weight: bold;
 }
 
-/* ===== SECTION ===== */
+/* =====================
+   SECTION
+===================== */
 section {
     max-width: 900px;
     margin: 50px auto;
     padding: 0 20px;
 }
 
-/* ===== CARD ===== */
+/* =====================
+   CARD
+===================== */
 .card {
-    background: #111;
-    border: 1px solid #222;
-    border-radius: 18px;
+    background: #ffffff;
+    border-radius: 16px;
     padding: 20px;
     margin-bottom: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    border-left: 6px solid #29b6f6;
 }
 
 h2 {
-    color: #ffd400;
+    color: #29b6f6;
+    margin-top: 0;
 }
 
-/* ===== GRID ===== */
+/* =====================
+   GRID
+===================== */
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -133,13 +147,15 @@ h2 {
 }
 
 .box {
-    background: #151515;
-    border: 1px solid #222;
-    padding: 14px;
-    border-radius: 14px;
+    background: #f0f8ff;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #e3f2fd;
 }
 
-/* ===== GALLERY ===== */
+/* =====================
+   GALLERY
+===================== */
 .gallery {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -151,41 +167,61 @@ h2 {
     border-radius: 10px;
 }
 
-/* ===== LINE ===== */
+/* =====================
+   LINE
+===================== */
 .line-box {
-    border: 1px solid #ffd400;
-    background: rgba(255,212,0,0.05);
+    border: 2px solid #ff9800;
+    background: #fff8f0;
     padding: 14px;
     border-radius: 14px;
     text-align: center;
 }
 
-/* ===== FORM ===== */
+/* =====================
+   FORM
+===================== */
 input, textarea {
     width: 100%;
     padding: 12px;
-    margin-top: 8px;
-    margin-bottom: 12px;
+    margin: 8px 0 12px;
     border-radius: 10px;
-    border: 1px solid #333;
-    background: #0f0f0f;
-    color: white;
+    border: 1px solid #ddd;
+    background: #fff;
 }
 
-/* ===== FOOTER ===== */
+/* =====================
+   FOOTER
+===================== */
 footer {
     text-align: center;
     padding: 40px 20px;
-    border-top: 1px solid #222;
-    color: #666;
+    background: #ffffff;
+    color: #888;
+    border-top: 1px solid #eee;
     font-size: 12px;
 }
 
-/* ===== MOBILE ===== */
+/* =====================
+   MOBILE
+===================== */
 @media (max-width: 768px) {
-    .grid { grid-template-columns: 1fr; }
-    .gallery { grid-template-columns: 1fr 1fr; }
-    .hero h2 { font-size: 26px; }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero h2 {
+        font-size: 26px;
+    }
+
+    .header-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 </style>
 
@@ -195,126 +231,128 @@ footer {
 
 <!-- HEADER -->
 <header>
-    <div class="header-inner">
+  <div class="header-inner">
 
-        <div class="logo">
-            <img src="vertex-logo.png">
-        </div>
-
-        <div class="header-text">
-            <h1>VERTEX FOOTBALL</h1>
-            <p>考える力を育てるサッカーアカデミー</p>
-        </div>
-
-        <div class="header-btn">
-            <a href="#contact">体験</a>
-        </div>
-
+    <div class="logo">
+      <img src="vertex-logo.png">
     </div>
+
+    <div class="header-text">
+      <h1>VERTEX FOOTBALL</h1>
+      <p>楽しく上達するサッカースクール</p>
+    </div>
+
+    <div class="header-btn">
+      <a href="#contact">体験</a>
+    </div>
+
+  </div>
 </header>
 
 <!-- HERO -->
 <div class="hero">
-    <div class="hero-content">
-        <h2>未来を変えるサッカーを</h2>
-        <p>黒×黄の育成型フットボールアカデミー</p>
-        <a class="btn" href="#contact">無料体験はこちら</a>
-    </div>
+  <div class="hero-content">
+    <h2>サッカーがもっと好きになる場所</h2>
+    <p>考える力 × 楽しさで成長するスクール</p>
+    <a class="btn" href="#contact">無料体験はこちら</a>
+  </div>
 </div>
 
 <section>
 
 <!-- CONCEPT -->
 <div class="card">
-    <h2>CONCEPT</h2>
-    <p>サッカーを“習い事”で終わらせない。判断力・技術・思考力を育てる。</p>
+  <h2>CONCEPT</h2>
+  <p>
+  サッカーを「楽しい」で終わらせず、<br>
+  自分で考えてプレーできる選手を育てます。
+  </p>
 </div>
 
-<!-- COACH + ACHIEVEMENT -->
+<!-- COACH -->
 <div class="card">
-    <h2>COACH / WATARU</h2>
+  <h2>COACH / WATARU</h2>
+  <p>
+  ジュニア年代指導経験あり。<br>
+  個人技・判断力・サッカーIQ育成に特化。
+  </p>
 
-    <p>
-    ジュニア年代指導経験あり。個人技・判断力育成に特化。
-    </p>
-
-    <div class="box">
-        <b>実績</b><br>
-        ・ジュニア指導経験あり<br>
-        ・初心者から選抜レベル育成<br>
-        ・レギュラー定着率向上<br>
-        ・判断力育成メソッド構築
-    </div>
+  <div class="box">
+    実績：初心者〜選抜レベル育成 / レギュラー定着率向上
+  </div>
 </div>
 
 <!-- SCHEDULE -->
 <div class="card">
-    <h2>SCHEDULE（土日）</h2>
+  <h2>SCHEDULE（土日）</h2>
 
-    <div class="grid">
-        <div class="box">SAT 09-11 TECH</div>
-        <div class="box">SAT 13-15 GAME</div>
-        <div class="box">SUN 09-11 IQ</div>
-        <div class="box">SUN 13-15 MATCH</div>
-    </div>
+  <div class="grid">
+    <div class="box">SAT 09-11 技術</div>
+    <div class="box">SAT 13-15 ゲーム</div>
+    <div class="box">SUN 09-11 判断力</div>
+    <div class="box">SUN 13-15 試合</div>
+  </div>
 </div>
 
 <!-- COURSE -->
 <div class="card">
-    <h2>COURSE</h2>
+  <h2>COURSE</h2>
 
-    <div class="box">U-8：¥5,000（基礎・楽しさ）</div>
-    <div class="box">U-10：¥7,500（技術＋判断）</div>
-    <div class="box">U-12：¥9,000（戦術＋実戦）</div>
+  <div class="box">U-8：¥5,000</div>
+  <div class="box">U-10：¥7,500</div>
+  <div class="box">U-12：¥9,000</div>
 </div>
 
 <!-- GALLERY -->
 <div class="card">
-    <h2>TRAINING GALLERY</h2>
+  <h2>GALLERY</h2>
 
-    <div class="gallery">
-        <img src="img1.jpg">
-        <img src="img2.jpg">
-        <img src="img3.jpg">
-    </div>
+  <div class="gallery">
+    <img src="img1.jpg">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+  </div>
 </div>
 
 <!-- FAQ -->
 <div class="card">
-    <h2>FAQ</h2>
+  <h2>FAQ</h2>
 
-    <div class="box">初心者OK？ → OK</div>
-    <div class="box">体験ある？ → あり</div>
-    <div class="box">途中参加？ → 可能</div>
+  <div class="box">初心者OK？ → OK</div>
+  <div class="box">女の子OK？ → OK</div>
+  <div class="box">体験ある？ → あり</div>
 </div>
 
-<!-- MAP -->
+<!-- ACCESS -->
 <div class="card">
-    <h2>ACCESS</h2>
+  <h2>ACCESS</h2>
 
-    <div class="box">
-        Google Mapをここに埋め込み<br>
-        （iframe貼り付け）
-    </div>
+  <div class="box">
+    横浜市・瀬谷区周辺フットサルコート
+  </div>
+
+  <div class="box">
+    Google Map埋め込みスペース
+  </div>
 </div>
 
-<!-- LINE -->
+<!-- CONTACT -->
 <div class="card" id="contact">
-    <h2>LINE / CONTACT</h2>
+  <h2>CONTACT</h2>
 
-    <div class="line-box">
-        LINEで体験申込・相談受付中
-    </div>
+  <div class="line-box">
+    LINEで体験申込受付中
+  </div>
 
-    <a class="btn" href="#">LINE追加はこちら</a>
+  <a class="btn" href="#">LINEで友だち追加</a>
 
-    <form>
-        <input type="text" placeholder="名前">
-        <input type="text" placeholder="学年">
-        <input type="text" placeholder="連絡先">
-        <textarea rows="4" placeholder="質問"></textarea>
-        <button class="btn" type="submit">送信</button>
-    </form>
+  <form>
+    <input type="text" placeholder="名前">
+    <input type="text" placeholder="学年">
+    <input type="text" placeholder="連絡先">
+    <textarea rows="4" placeholder="質問"></textarea>
+    <button class="btn" type="submit">送信</button>
+  </form>
 </div>
 
 </section>
