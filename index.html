@@ -6,94 +6,133 @@
 <title>瀬谷フットボールクラブ</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    font-family:"Yu Gothic",sans-serif;
-    background:#f5f5f0;
+font-family:"Yu Gothic",sans-serif;
+background:#f5f5f0;
+color:#333;
+line-height:1.7;
 }
 
+/* ヘッダー */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,.85);
+padding:15px 40px;
+z-index:1000;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+color:#ffd22e;
+font-size:30px;
+font-weight:bold;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:bold;
+}
+
+/* ヒーロー */
+
 .hero{
-    height:100vh;
-    background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-    url("soccer.jpg");
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("soccer.jpg");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
 }
 
 .hero-content h1{
-    font-size:70px;
-    color:#ffd22e;
-    margin-bottom:20px;
-    text-shadow:2px 2px 5px rgba(0,0,0,.5);
+font-size:70px;
+color:#ffd22e;
+margin-bottom:20px;
+text-shadow:2px 2px 5px rgba(0,0,0,.5);
 }
 
 .hero-content p{
-    font-size:24px;
-    margin-bottom:30px;
+font-size:24px;
+margin-bottom:25px;
 }
 
 .btn{
-    display:inline-block;
-    padding:18px 40px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-    margin:10px;
+display:inline-block;
+padding:18px 40px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+margin:10px;
 }
 
 .btn-yellow{
-    background:#f4b400;
-    color:black;
+background:#f4b400;
+color:black;
 }
 
 .btn-green{
-    background:#06c755;
-    color:white;
+background:#06c755;
+color:white;
 }
 
+/* 共通 */
+
 .container{
-    max-width:1200px;
-    margin:auto;
-    padding:80px 20px;
+max-width:1200px;
+margin:auto;
+padding:80px 20px;
 }
 
 .section-title{
-    text-align:center;
-    font-size:42px;
-    margin-bottom:50px;
-    color:#123d20;
+text-align:center;
+font-size:42px;
+margin-bottom:50px;
+color:#123d20;
 }
 
+/* コース */
+
 .course-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
 }
 
 .course-card{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
 
 .course-header{
-    padding:20px;
-    color:white;
-    text-align:center;
-    font-size:24px;
-    font-weight:bold;
+padding:20px;
+color:white;
+text-align:center;
+font-size:24px;
+font-weight:bold;
 }
 
 .green{background:#4caf50;}
@@ -101,32 +140,127 @@ body{
 .orange{background:#f39c12;}
 
 .course-body{
-    padding:30px;
-    text-align:center;
+padding:30px;
+}
+
+.course-body ul{
+padding-left:20px;
+margin-top:15px;
 }
 
 .price{
-    font-size:42px;
-    color:#e65100;
-    font-weight:bold;
-    margin-top:20px;
+font-size:42px;
+color:#e65100;
+font-weight:bold;
+margin-top:20px;
+text-align:center;
 }
+
+/* コーチ */
+
+.coach-card{
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.coach-card h3{
+font-size:32px;
+color:#123d20;
+margin-bottom:20px;
+}
+
+.coach-card ul{
+padding-left:20px;
+margin:20px 0;
+}
+
+.coach-card li{
+margin-bottom:10px;
+}
+
+/* フォーム */
+
+.contact-form{
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+.contact-form button{
+width:100%;
+padding:15px;
+background:#06c755;
+color:white;
+border:none;
+border-radius:8px;
+font-size:18px;
+}
+
+/* フッター */
+
+.footer{
+background:#123d20;
+color:white;
+text-align:center;
+padding:50px 20px;
+}
+
+/* スマホ */
 
 @media(max-width:768px){
 
 .hero-content h1{
-    font-size:40px;
+font-size:40px;
+}
+
+.hero-content p{
+font-size:18px;
 }
 
 .course-grid{
-    grid-template-columns:1fr;
+grid-template-columns:1fr;
+}
+
+.nav-links{
+display:none;
 }
 
 }
+
 </style>
 </head>
 
 <body>
+
+<header>
+
+<nav>
+
+<div class="logo">
+瀬谷FC
+</div>
+
+<div class="nav-links">
+<a href="#course">コース</a>
+<a href="#coach">コーチ紹介</a>
+<a href="#contact">無料体験</a>
+</div>
+
+</nav>
+
+</header>
 
 <section class="hero">
 
@@ -150,7 +284,7 @@ LINEで相談する
 
 </section>
 
-<section class="container">
+<section class="container" id="course">
 
 <h2 class="section-title">
 コース・料金
@@ -159,53 +293,164 @@ LINEで相談する
 <div class="course-grid">
 
 <div class="course-card">
+
 <div class="course-header green">
 キッズクラス
 </div>
 
 <div class="course-body">
+
 <p>年中〜年長</p>
 <p>土曜日 10:00〜11:00</p>
+
+<ul>
+<li>ボールに慣れる</li>
+<li>楽しく身体を動かす</li>
+<li>走る・止まるを覚える</li>
+<li>友達とのコミュニケーション</li>
+</ul>
 
 <div class="price">
 ¥5,000
 </div>
+
 </div>
 </div>
 
 <div class="course-card">
+
 <div class="course-header blue">
 ジュニアクラス
 </div>
 
 <div class="course-body">
+
 <p>小学1年〜3年</p>
 <p>土曜日 11:00〜12:30</p>
+
+<ul>
+<li>ドリブル</li>
+<li>パス</li>
+<li>シュート</li>
+<li>1対1</li>
+<li>試合形式トレーニング</li>
+</ul>
 
 <div class="price">
 ¥7,000
 </div>
+
 </div>
 </div>
 
 <div class="course-card">
+
 <div class="course-header orange">
 アドバンスクラス
 </div>
 
 <div class="course-body">
+
 <p>小学4年〜6年</p>
 <p>日曜日 09:00〜11:00</p>
+
+<ul>
+<li>戦術理解</li>
+<li>ポジショニング</li>
+<li>状況判断</li>
+<li>対人プレー</li>
+<li>試合形式トレーニング</li>
+</ul>
 
 <div class="price">
 ¥9,000
 </div>
+
 </div>
 </div>
 
 </div>
 
 </section>
+
+<section class="container" id="coach">
+
+<h2 class="section-title">
+コーチ紹介
+</h2>
+
+<div class="coach-card">
+
+<h3>Wataruコーチ</h3>
+
+<p>
+小学2年生から高校3年生までサッカーを経験。
+</p>
+
+<ul>
+<li>地域選抜選出</li>
+<li>東京都大会2連覇</li>
+<li>関東大会出場</li>
+<li>全国大会出場</li>
+<li>横河武蔵野FC所属</li>
+<li>フランス遠征経験</li>
+<li>スペイン遠征経験</li>
+</ul>
+
+<p>
+サッカーを通じて技術だけでなく、
+考える力・挑戦する心・仲間を大切にする気持ちを育てます。
+初心者のお子さまも大歓迎です。
+</p>
+
+</div>
+
+</section>
+
+<section class="container" id="contact">
+
+<h2 class="section-title">
+無料体験申込
+</h2>
+
+<div class="contact-form">
+
+<input type="text" placeholder="お子さまのお名前">
+
+<input type="text" placeholder="学年">
+
+<input type="email" placeholder="メールアドレス">
+
+<textarea rows="5" placeholder="ご質問"></textarea>
+
+<button>
+無料体験を申し込む
+</button>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<h3>瀬谷フットボールクラブ</h3>
+
+<p>横浜市瀬谷区で活動中</p>
+
+<br>
+
+<p>
+サッカーを通じて、
+考える力と挑戦する心を育てる
+</p>
+
+<br>
+
+<p>
+© 2026 瀬谷フットボールクラブ
+</p>
+
+</footer>
 
 </body>
 </html>
