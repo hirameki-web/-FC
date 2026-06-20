@@ -18,16 +18,23 @@ body {
 }
 
 /* =====================
+   CONTAINER（中央設計の核）
+===================== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =====================
    HEADER
 ===================== */
 header {
     background: linear-gradient(90deg, #4fc3f7, #29b6f6);
-    padding: 14px 20px;
+    padding: 14px 0;
 }
 
 .header-inner {
-    max-width: 1100px;
-    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,7 +63,7 @@ header {
 
 .header-btn a {
     background: #ff9800;
-    color: #fff;
+    color: white;
     padding: 10px 14px;
     border-radius: 999px;
     text-decoration: none;
@@ -86,8 +93,9 @@ header {
 .hero-content {
     position: relative;
     text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
     color: white;
-    padding: 20px;
 }
 
 .hero h2 {
@@ -97,7 +105,6 @@ header {
 
 .hero p {
     margin-top: 8px;
-    color: #f0f0f0;
 }
 
 .btn {
@@ -115,9 +122,7 @@ header {
    SECTION
 ===================== */
 section {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 0 20px;
+    padding: 50px 0;
 }
 
 /* =====================
@@ -132,7 +137,7 @@ section {
     border-left: 6px solid #29b6f6;
 }
 
-h2 {
+.card h2 {
     color: #29b6f6;
     margin-top: 0;
 }
@@ -158,7 +163,7 @@ h2 {
 ===================== */
 .gallery {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
 }
 
@@ -187,7 +192,6 @@ input, textarea {
     margin: 8px 0 12px;
     border-radius: 10px;
     border: 1px solid #ddd;
-    background: #fff;
 }
 
 /* =====================
@@ -195,7 +199,7 @@ input, textarea {
 ===================== */
 footer {
     text-align: center;
-    padding: 40px 20px;
+    padding: 40px 0;
     background: #ffffff;
     color: #888;
     border-top: 1px solid #eee;
@@ -206,6 +210,11 @@ footer {
    MOBILE
 ===================== */
 @media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .grid {
         grid-template-columns: 1fr;
     }
@@ -217,11 +226,6 @@ footer {
     .hero h2 {
         font-size: 26px;
     }
-
-    .header-inner {
-        flex-direction: column;
-        gap: 10px;
-    }
 }
 </style>
 
@@ -231,7 +235,7 @@ footer {
 
 <!-- HEADER -->
 <header>
-  <div class="header-inner">
+  <div class="container header-inner">
 
     <div class="logo">
       <img src="vertex-logo.png">
@@ -258,27 +262,23 @@ footer {
   </div>
 </div>
 
+<!-- CONTENT -->
 <section>
+<div class="container">
 
 <!-- CONCEPT -->
 <div class="card">
   <h2>CONCEPT</h2>
-  <p>
-  サッカーを「楽しい」で終わらせず、<br>
-  自分で考えてプレーできる選手を育てます。
-  </p>
+  <p>サッカーを“楽しい”で終わらせず、考えてプレーできる選手を育てます。</p>
 </div>
 
 <!-- COACH -->
 <div class="card">
   <h2>COACH / WATARU</h2>
-  <p>
-  ジュニア年代指導経験あり。<br>
-  個人技・判断力・サッカーIQ育成に特化。
-  </p>
+  <p>ジュニア年代指導経験あり。個人技・判断力・サッカーIQ育成に特化。</p>
 
   <div class="box">
-    実績：初心者〜選抜レベル育成 / レギュラー定着率向上
+    実績：初心者〜選抜育成／レギュラー定着率向上
   </div>
 </div>
 
@@ -289,7 +289,7 @@ footer {
   <div class="grid">
     <div class="box">SAT 09-11 技術</div>
     <div class="box">SAT 13-15 ゲーム</div>
-    <div class="box">SUN 09-11 判断力</div>
+    <div class="box">SUN 09-11 判断</div>
     <div class="box">SUN 13-15 試合</div>
   </div>
 </div>
@@ -318,9 +318,9 @@ footer {
 <div class="card">
   <h2>FAQ</h2>
 
-  <div class="box">初心者OK？ → OK</div>
-  <div class="box">女の子OK？ → OK</div>
-  <div class="box">体験ある？ → あり</div>
+  <div class="box">初心者OK</div>
+  <div class="box">女の子OK</div>
+  <div class="box">体験あり</div>
 </div>
 
 <!-- ACCESS -->
@@ -332,7 +332,7 @@ footer {
   </div>
 
   <div class="box">
-    Google Map埋め込みスペース
+    Google Map埋め込み
   </div>
 </div>
 
@@ -344,7 +344,7 @@ footer {
     LINEで体験申込受付中
   </div>
 
-  <a class="btn" href="#">LINEで友だち追加</a>
+  <a class="btn" href="#">LINE追加</a>
 
   <form>
     <input type="text" placeholder="名前">
@@ -355,6 +355,7 @@ footer {
   </form>
 </div>
 
+</div>
 </section>
 
 <footer>
