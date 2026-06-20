@@ -2,93 +2,132 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>VERTEX FOOTBALL ACADEMY</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VERTEX FOOTBALL ACADEMY</title>
+
 <style>
-    <div class="logo">
-  <img src="vertex-logo.png" alt="VERTEX FOOTBALL ACADEMY" style="height:45px;">
-</div>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0b0f1a;
-    color: white;
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #e0f7ff, #ffffff);
+    color: #333;
 }
+
+/* ヘッダー */
 header {
-    padding: 40px;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    color: white;
+    padding: 40px 20px;
     text-align: center;
-    background: linear-gradient(90deg, #111, #1a1f2e);
 }
-h1 {
+
+header h1 {
+    margin: 0;
     font-size: 36px;
     letter-spacing: 2px;
 }
-.hero {
-    padding: 60px 20px;
-    text-align: center;
+
+header p {
+    margin-top: 10px;
+    font-size: 16px;
 }
-.button {
-    background: #00c2ff;
-    padding: 12px 24px;
-    color: black;
-    font-weight: bold;
-    border-radius: 8px;
-    display: inline-block;
-    margin-top: 20px;
-}
-.section {
-    padding: 40px 20px;
+
+/* セクション */
+section {
     max-width: 900px;
-    margin: auto;
-}
-.card {
-    background: #151c2c;
+    margin: 40px auto;
     padding: 20px;
-    margin: 10px 0;
-    border-radius: 10px;
 }
+
+/* カード */
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 6px solid #00c6ff;
+}
+
+h2 {
+    color: #0072ff;
+}
+
+/* ボタン */
+.btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* フッター */
 footer {
     text-align: center;
-    padding: 30px;
+    padding: 20px;
+    background: #f5f5f5;
     font-size: 12px;
-    opacity: 0.6;
+    color: #666;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
     <h1>VERTEX FOOTBALL ACADEMY</h1>
-    <p>個の頂点を作る、実戦型フットボールアカデミー</p>
+    <p>楽しみながら「本気」で上手くなるサッカー教室</p>
 </header>
 
-<div class="hero">
-    <h2>試合で“使える個”を育てる</h2>
-    <p>技術 × 判断 × 1v1 を徹底強化</p>
-    <div class="button">体験トレーニング申込</div>
-</div>
+<section>
 
-<div class="section">
-    <h2>特徴</h2>
-    <div class="card">少人数制トレーニング（最大16名）</div>
-    <div class="card">毎回テーマ固定型トレーニング</div>
-    <div class="card">実戦に直結するスキル強化</div>
-</div>
+    <div class="card">
+        <h2>🏆 コンセプト</h2>
+        <p>
+        VERTEX FOOTBALL ACADEMYは、小学生を対象にしたサッカースクールです。<br>
+        「楽しさ」と「成長」を両立し、個人技術と判断力を育てます。
+        </p>
+    </div>
 
-<div class="section">
-    <h2>料金</h2>
-    <div class="card">月4回：8,800円</div>
-    <div class="card">月8回：14,800円</div>
-</div>
+    <div class="card">
+        <h2>👦 対象</h2>
+        <p>小学1年生〜小学6年生</p>
+    </div>
 
-<div class="section">
-    <h2>対象</h2>
-    <div class="card">小学3年生〜6年生</div>
-</div>
+    <div class="card">
+        <h2>📍 練習場所</h2>
+        <p>
+        神奈川県内のフットサルコート・公園など<br>
+        （※瀬谷区・横浜市周辺で調整中）
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>💰 料金</h2>
+        <p>
+        月謝：12,000円〜15,000円（予定）
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>📩 参加・お問い合わせ</h2>
+        <p>LINEまたはInstagramで受付予定</p>
+        <a class="btn" href="#">お問い合わせはこちら</a>
+    </div>
+
+</section>
 
 <footer>
-    © VERTEX FOOTBALL ACADEMY
+    © VERTEX FOOTBALL ACADEMY All Rights Reserved.
 </footer>
 
 </body>
