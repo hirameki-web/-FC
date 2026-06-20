@@ -9,27 +9,43 @@
 body {
     margin: 0;
     font-family: "Arial", sans-serif;
-    background: linear-gradient(135deg, #e0f7ff, #ffffff);
+    background: linear-gradient(135deg, #eaf8ff, #ffffff);
     color: #333;
+    line-height: 1.6;
 }
 
 /* ヘッダー */
 header {
     background: linear-gradient(90deg, #00c6ff, #0072ff);
     color: white;
-    padding: 40px 20px;
+    padding: 20px;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.header-text {
     text-align: center;
+    flex: 1;
 }
 
-header h1 {
+.header-text h1 {
     margin: 0;
-    font-size: 36px;
-    letter-spacing: 2px;
+    font-size: 34px;
 }
 
-header p {
-    margin-top: 10px;
-    font-size: 16px;
+.header-text p {
+    margin-top: 5px;
+    font-size: 14px;
 }
 
 /* セクション */
@@ -45,7 +61,7 @@ section {
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     border-left: 6px solid #00c6ff;
 }
 
@@ -53,29 +69,77 @@ h2 {
     color: #0072ff;
 }
 
+/* スケジュール */
+.schedule {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.day {
+    background: #f0f8ff;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* QA */
+.qa h3 {
+    margin: 0;
+    color: #00a3d9;
+}
+
+/* LINE */
+.line-box {
+    background: #eafff3;
+    border: 2px solid #00c300;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
 /* ボタン */
 .btn {
     display: inline-block;
     background: linear-gradient(90deg, #00c6ff, #0072ff);
     color: white;
-    padding: 12px 20px;
+    padding: 14px 22px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
     margin-top: 10px;
 }
 
-.btn:hover {
-    opacity: 0.8;
+/* フォーム */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
 /* フッター */
 footer {
     text-align: center;
-    padding: 20px;
-    background: #f5f5f5;
+    padding: 30px;
+    background: #f2f2f2;
     font-size: 12px;
     color: #666;
+}
+
+/* スマホ */
+@media (max-width: 600px) {
+    .header-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .schedule {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 
@@ -84,50 +148,134 @@ footer {
 <body>
 
 <header>
-    <h1>VERTEX FOOTBALL ACADEMY</h1>
-    <p>楽しみながら「本気」で上手くなるサッカー教室</p>
+    <div class="header-inner">
+
+        <div class="logo">
+            <img src="vertex-logo.png" alt="VERTEX LOGO">
+        </div>
+
+        <div class="header-text">
+            <h1>VERTEX FOOTBALL ACADEMY</h1>
+            <p>土日だけの集中トレーニングで“考える選手”へ</p>
+        </div>
+
+        <div style="width:60px;"></div>
+    </div>
 </header>
 
 <section>
 
-    <div class="card">
-        <h2>🏆 コンセプト</h2>
-        <p>
-        VERTEX FOOTBALL ACADEMYは、小学生を対象にしたサッカースクールです。<br>
-        「楽しさ」と「成長」を両立し、個人技術と判断力を育てます。
-        </p>
+<!-- コンセプト -->
+<div class="card">
+    <h2>🏆 コンセプト</h2>
+    <p>
+    サッカーを“ただの習い事”で終わらせない。<br>
+    判断力・個人技・サッカーIQを育てるスクールです。
+    </p>
+</div>
+
+<!-- コーチ -->
+<div class="card">
+    <h2>👨‍🏫 コーチ紹介</h2>
+    <p>
+    <b>Wataruコーチ</b><br>
+    ・ジュニア年代指導経験あり<br>
+    ・個人技・判断力専門トレーニング<br>
+    ・成功体験を増やす指導スタイル
+    </p>
+</div>
+
+<!-- 対象 -->
+<div class="card">
+    <h2>👦 対象</h2>
+    <p>小学1年生〜小学6年生</p>
+</div>
+
+<!-- スケジュール（土日運用） -->
+<div class="card">
+    <h2>📅 スケジュール（基本土日）</h2>
+
+    <div class="schedule">
+        <div class="day">土曜<br>9:00〜11:00<br>技術トレーニング</div>
+        <div class="day">土曜<br>13:00〜15:00<br>実戦トレーニング</div>
+        <div class="day">日曜<br>9:00〜11:00<br>判断力トレーニング</div>
+        <div class="day">日曜<br>13:00〜15:00<br>試合形式</div>
     </div>
 
-    <div class="card">
-        <h2>👦 対象</h2>
-        <p>小学1年生〜小学6年生</p>
+    <p style="margin-top:10px;font-size:12px;">
+    ※参加は週1回〜OK / 変更あり
+    </p>
+</div>
+
+<!-- 場所 -->
+<div class="card">
+    <h2>📍 練習場所</h2>
+    <p>横浜市・瀬谷区周辺フットサルコート / 公園</p>
+</div>
+
+<!-- 料金 -->
+<div class="card">
+    <h2>💰 料金</h2>
+    <p>月謝：12,000円〜15,000円</p>
+</div>
+
+<!-- Q&A -->
+<div class="card">
+    <h2>❓ よくある質問</h2>
+
+    <div class="qa">
+        <h3>Q. 初心者でも大丈夫？</h3>
+        <p>A. 基礎から丁寧に指導します。</p>
     </div>
 
-    <div class="card">
-        <h2>📍 練習場所</h2>
-        <p>
-        神奈川県内のフットサルコート・公園など<br>
-        （※瀬谷区・横浜市周辺で調整中）
-        </p>
+    <div class="qa">
+        <h3>Q. 体験はありますか？</h3>
+        <p>A. 初回体験あり（調整中）</p>
     </div>
 
-    <div class="card">
-        <h2>💰 料金</h2>
-        <p>
-        月謝：12,000円〜15,000円（予定）
-        </p>
+    <div class="qa">
+        <h3>Q. 途中参加できますか？</h3>
+        <p>A. いつでも参加可能です。</p>
+    </div>
+</div>
+
+<!-- LINE -->
+<div class="card">
+    <h2>📩 LINEで体験申込</h2>
+
+    <div class="line-box">
+        <p><b>LINEで簡単に問い合わせできます</b></p>
+        <p>※リンクは後から差し替えOK</p>
     </div>
 
-    <div class="card">
-        <h2>📩 参加・お問い合わせ</h2>
-        <p>LINEまたはInstagramで受付予定</p>
-        <a class="btn" href="#">お問い合わせはこちら</a>
-    </div>
+    <a class="btn" href="#">LINEで問い合わせる</a>
+</div>
+
+<!-- 体験フォーム -->
+<div class="card">
+    <h2>📝 体験申込フォーム</h2>
+
+    <form>
+        <label>お名前</label>
+        <input type="text" placeholder="例：田中太郎">
+
+        <label>学年</label>
+        <input type="text" placeholder="例：小学4年生">
+
+        <label>電話番号</label>
+        <input type="text" placeholder="例：090-xxxx-xxxx">
+
+        <label>質問・備考</label>
+        <textarea rows="4" placeholder="ご質問など"></textarea>
+
+        <button class="btn" type="submit">送信する</button>
+    </form>
+</div>
 
 </section>
 
 <footer>
-    © VERTEX FOOTBALL ACADEMY All Rights Reserved.
+© VERTEX FOOTBALL ACADEMY
 </footer>
 
 </body>
