@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VERTEX FOOTBALL ACADEMY | ヴェルテックス フットボールアカデミー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0D0D0D;
+    --charcoal: #1A1A1A;
+    --charcoal-2: #232323;
+    --gold: #D98E2B;
+    --gold-light: #F0B860;
+    --cream: #F5F1E8;
+    --white: #FFFFFF;
+    --line: rgba(245,241,232,0.12);
+    --shadow: rgba(0,0,0,0.45);
+
+    --font-display: "Oswald", "Zen Kaku Gothic New", sans-serif;
+    --font-body: "Zen Kaku Gothic New", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  /* ===== shared label/eyebrow ===== */
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .eyebrow .bolt { width: 14px; height: 18px; flex-shrink: 0; }
+
+  /* ===== Header ===== */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,13,13,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 76px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gold); background: var(--cream); padding: 2px; }
+  .brand-text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .brand-text small {
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .nav-links { display: flex; gap: 30px; font-size: 0.86rem; font-weight: 500; }
+  .nav-links a { color: rgba(245,241,232,0.82); position: relative; padding: 4px 0; }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; bottom: -2px; width: 0%; height: 2px;
+    background: var(--gold); transition: width .25s ease;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--ink) !important;
+    padding: 11px 24px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .nav-cta::after { display: none; }
+
+  .nav-toggle {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 8px;
+  }
+  .nav-toggle span { width: 24px; height: 2px; background: var(--white); }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding-top: 76px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  .hero-bg-glow {
+    position: absolute;
+    top: -10%; right: -10%;
+    width: 60%; height: 70%;
+    background: radial-gradient(circle, rgba(217,142,43,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-crest {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative; z-index: 2;
+    width: 100%;
+    padding-block: 90px;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero .eyebrow { justify-content: center; }
+
+  .hero .eyebrow { margin-bottom: 26px; opacity: 0; animation: fadeUp .8s ease forwards; animation-delay: .1s; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    color: var(--white);
+    font-size: clamp(2.6rem, 5.4vw, 4.1rem);
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: 0.01em;
+    margin-bottom: 26px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp .8s ease forwards; animation-delay: .25s;
+  }
+  .hero h1 .accent { color: var(--gold); }
+
+  .hero p.lead {
+    color: rgba(245,241,232,0.78);
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin: 0 auto 38px;
+    opacity: 0;
+    animation: fadeUp .8s ease forwards; animation-delay: .4s;
+  }
+
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; opacity: 0; animation: fadeUp .8s ease forwards; animation-delay: .55s; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 17px 34px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary { background: var(--gold); color: var(--ink); }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(217,142,43,0.3); }
+  .btn-line { background: #06C755; color: var(--white); }
+  .btn-line:hover { background: #05b34c; transform: translateY(-2px); }
+  .btn-outline { border: 1px solid rgba(245,241,232,0.35); color: var(--white); }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats { display: flex; gap: 32px; margin-top: 60px; justify-content: center; opacity: 0; animation: fadeUp .8s ease forwards; animation-delay: .7s; }
+  .hero-stat { border-left: 2px solid var(--gold); padding-left: 14px; text-align: left; }
+  .hero-stat strong { display: block; font-family: var(--font-display); color: var(--white); font-size: 1.6rem; }
+  .hero-stat span { color: rgba(245,241,232,0.55); font-size: 0.72rem; letter-spacing: 0.06em; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+  .scroll-cue {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    color: rgba(245,241,232,0.5);
+    font-size: 0.7rem; letter-spacing: 0.16em;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    z-index: 2;
+  }
+  .scroll-cue .line { width: 1px; height: 30px; background: rgba(245,241,232,0.4); }
+
+  /* ===== Section shared ===== */
+  section { position: relative; }
+  .section-pad { padding: 104px 0; }
+  .section-head { max-width: 620px; margin-bottom: 56px; }
+  .section-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+    color: var(--ink);
+    text-transform: uppercase;
+    margin-top: 16px;
+    line-height: 1.25;
+  }
+  .section-head p { margin-top: 16px; color: rgba(13,13,13,0.65); font-size: 0.98rem; }
+  .on-dark .section-head h2 { color: var(--white); }
+  .on-dark .section-head p { color: rgba(245,241,232,0.65); }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  .diag-divider {
+    height: 64px;
+    background: var(--ink);
+    clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 100%);
+  }
+  .diag-divider.flip { clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%); }
+
+  /* ===== About ===== */
+  .about { background: var(--cream); }
+  .about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items: center; }
+  .about-visual { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+  .about-visual img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.15) contrast(1.05); }
+  .about-visual::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(13,13,13,0.7) 100%);
+  }
+  .about-visual-tag {
+    position: absolute; bottom: 20px; left: 20px; z-index: 2;
+    background: var(--gold); color: var(--ink);
+    padding: 10px 18px;
+    font-family: var(--font-display); font-weight: 600; font-size: 0.78rem;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  }
+
+  .pillar-list { margin-top: 30px; display: grid; gap: 26px; }
+  .pillar-item { display: flex; gap: 18px; align-items: flex-start; }
+  .pillar-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
+  }
+  .pillar-icon svg { width: 20px; height: 20px; }
+  .pillar-item h3 { font-family: var(--font-display); font-size: 1.08rem; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 6px; }
+  .pillar-item p { font-size: 0.92rem; color: rgba(13,13,13,0.62); }
+
+  /* ===== Coach ===== */
+  .coach { background: var(--ink); }
+  .coach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .coach-card { background: var(--charcoal); transition: transform .3s ease; border: 1px solid var(--line); }
+  .coach-card:hover { transform: translateY(-6px); }
+  .coach-photo { aspect-ratio: 1; overflow: hidden; position: relative; }
+  .coach-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.3); }
+  .coach-photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(13,13,13,0.85) 100%);
+  }
+  .coach-body { padding: 22px; }
+  .coach-role { color: var(--gold); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+  .coach-name { font-family: var(--font-display); color: var(--white); font-size: 1.2rem; letter-spacing: 0.02em; margin-bottom: 10px; text-transform: uppercase; }
+  .coach-desc { font-size: 0.86rem; color: rgba(245,241,232,0.6); }
+
+  /* ===== Courses ===== */
+  .courses { background: var(--cream); }
+  .course-list { display: grid; gap: 18px; }
+  .course-card {
+    background: var(--white);
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 0.8fr auto;
+    align-items: center;
+    gap: 24px;
+    border-left: 4px solid var(--ink);
+    transition: box-shadow .3s ease, transform .3s ease, border-color .3s ease;
+  }
+  .course-card:hover { box-shadow: 0 18px 40px rgba(13,13,13,0.1); transform: translateY(-3px); border-color: var(--gold); }
+  .course-card.is-featured { border-left-color: var(--gold); background: var(--ink); }
+  .course-card.is-featured .course-title-wrap h3,
+  .course-card.is-featured .course-meta strong { color: var(--white); }
+  .course-card.is-featured .course-title-wrap p,
+  .course-card.is-featured .course-meta { color: rgba(245,241,232,0.65); }
+  .course-card.is-featured .course-price strong { color: var(--gold); }
+  .course-card.is-featured .course-price span { color: rgba(245,241,232,0.5); }
+
+  .course-tag {
+    display: inline-block;
+    background: var(--ink); color: var(--gold);
+    font-family: var(--font-display); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 12px; margin-bottom: 10px;
+  }
+  .course-card.is-featured .course-tag { background: var(--gold); color: var(--ink); }
+
+  .course-title-wrap h3 { font-family: var(--font-display); font-size: 1.3rem; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.01em; }
+  .course-title-wrap p { font-size: 0.86rem; color: rgba(13,13,13,0.58); }
+
+  .course-meta { font-size: 0.88rem; color: rgba(13,13,13,0.7); }
+  .course-meta strong { display: block; color: var(--ink); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+
+  .course-price { text-align: right; }
+  .course-price strong { font-family: var(--font-display); font-size: 1.5rem; color: var(--ink); }
+  .course-price span { display: block; font-size: 0.72rem; color: rgba(13,13,13,0.5); }
+
+  .course-note { margin-top: 24px; font-size: 0.8rem; color: rgba(13,13,13,0.5); }
+
+  /* ===== Schedule ===== */
+  .schedule { background: var(--ink); }
+  .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+  .day-col { background: var(--charcoal); border: 1px solid var(--line); padding: 18px 10px; text-align: center; min-height: 150px; }
+  .day-col.active { border-color: rgba(217,142,43,0.4); background: var(--charcoal-2); }
+  .day-name { color: var(--white); font-family: var(--font-display); font-weight: 600; font-size: 0.86rem; margin-bottom: 10px; text-transform: uppercase; }
+  .day-class { color: var(--gold); font-size: 0.72rem; line-height: 1.6; }
+  .day-class.empty { color: rgba(245,241,232,0.25); }
+
+  /* ===== Monthly calendar ===== */
+  .month-cal { background: var(--ink); border-top: 1px solid var(--line); }
+  .month-cal-head {
+    display: flex; align-items: baseline; gap: 14px; margin-bottom: 24px;
+  }
+  .month-cal-head h3 {
+    font-family: var(--font-display); color: var(--white);
+    font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.02em;
+  }
+  .month-cal-head span { color: rgba(245,241,232,0.5); font-size: 0.82rem; }
+
+  .month-cal-legend { display: flex; gap: 22px; margin-bottom: 28px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: rgba(245,241,232,0.7); }
+  .legend-dot { width: 10px; height: 10px; flex-shrink: 0; }
+  .legend-dot.on { background: var(--gold); }
+  .legend-dot.off { background: var(--charcoal-2); border: 1px solid var(--line); }
+  .legend-dot.holiday { background: #B23A1F; }
+
+  .cal-weekdays {
+    display: grid; grid-template-columns: repeat(7, 1fr);
+    gap: 8px; margin-bottom: 8px;
+  }
+  .cal-weekdays span {
+    text-align: center; font-size: 0.74rem; font-weight: 700;
+    color: rgba(245,241,232,0.45); text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .cal-weekdays span.sat { color: rgba(120,170,230,0.7); }
+  .cal-weekdays span.sun { color: rgba(230,140,120,0.7); }
+
+  .cal-grid {
+    display: grid; grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+  .cal-cell {
+    aspect-ratio: 1; min-height: 86px;
+    background: var(--charcoal);
+    border: 1px solid var(--line);
+    padding: 8px;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .cal-cell.empty-cell { background: transparent; border: none; }
+  .cal-cell .date-num {
+    font-family: var(--font-display); font-size: 0.95rem; color: rgba(245,241,232,0.55);
+  }
+  .cal-cell.is-active { background: var(--charcoal-2); border-color: rgba(217,142,43,0.4); }
+  .cal-cell.is-active .date-num { color: var(--white); }
+  .cal-cell.is-off { background: rgba(178,58,31,0.08); border-color: rgba(178,58,31,0.3); }
+  .cal-cell.is-off .date-num { color: rgba(245,241,232,0.4); }
+  .cal-cell.is-holiday .date-num { color: #E68C78; }
+
+  .cal-tag {
+    margin-top: auto;
+    font-size: 0.62rem;
+    line-height: 1.4;
+    color: var(--gold);
+  }
+  .cal-tag.off-label { color: #C9543A; font-weight: 700; }
+  .cal-tag.holiday-label { color: #E68C78; font-size: 0.58rem; }
+
+  .month-cal-note { margin-top: 24px; font-size: 0.8rem; color: rgba(245,241,232,0.45); }
+
+  @media (max-width: 760px) {
+    .cal-cell { min-height: 64px; padding: 6px; }
+    .cal-cell .date-num { font-size: 0.8rem; }
+    .cal-tag { font-size: 0.55rem; }
+    .cal-grid, .cal-weekdays { gap: 5px; }
+  }
+
+  /* ===== Gallery ===== */
+  .gallery { background: var(--cream); }
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; gap: 10px; }
+  .gallery-item { overflow: hidden; cursor: pointer; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.25); transition: transform .4s ease, filter .4s ease; }
+  .gallery-item:hover img { transform: scale(1.06); filter: grayscale(0); }
+  .gallery-item.tall { grid-row: span 2; }
+
+  /* ===== Voice ===== */
+  .voice { background: var(--cream); }
+  .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .voice-card { background: var(--white); padding: 30px; position: relative; border-top: 3px solid var(--gold); }
+  .voice-quote-mark { font-family: var(--font-display); font-size: 2.8rem; color: var(--gold); line-height: 1; opacity: 0.5; }
+  .voice-card p.body { font-size: 0.92rem; color: rgba(13,13,13,0.68); margin: 8px 0 18px; }
+  .voice-who { font-size: 0.8rem; font-weight: 700; color: var(--ink); }
+  .voice-who span { color: rgba(13,13,13,0.45); font-weight: 400; }
+
+  /* ===== FAQ ===== */
+  .faq { background: var(--cream); }
+  .faq-list { display: grid; gap: 10px; }
+  .faq-item { border: 1px solid rgba(13,13,13,0.1); background: var(--white); }
+  .faq-q {
+    width: 100%; background: none; border: none; text-align: left;
+    padding: 20px 24px; font-weight: 700; font-size: 0.94rem;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; color: var(--ink);
+  }
+  .faq-q .icon { font-family: var(--font-display); font-size: 1.3rem; color: var(--gold); transition: transform .25s ease; margin-left: 16px; }
+  .faq-item.open .faq-q .icon { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+  .faq-a-inner { padding: 0 24px 20px; font-size: 0.88rem; color: rgba(13,13,13,0.65); }
+
+  /* ===== Apply ===== */
+  .apply { background: var(--ink); }
+  .apply-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px; }
+
+  .apply-info-card { background: var(--charcoal); border: 1px solid var(--line); padding: 30px; }
+  .apply-info-card h3 { font-family: var(--font-display); color: var(--white); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 0.02em; }
+  .apply-info-item { display: flex; gap: 14px; margin-bottom: 18px; align-items: flex-start; }
+  .apply-info-item .ico { color: var(--gold); font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; min-width: 20px; }
+  .apply-info-item div { color: rgba(245,241,232,0.78); font-size: 0.87rem; }
+  .apply-info-item strong { display: block; color: var(--white); font-size: 0.84rem; margin-bottom: 2px; }
+
+  .line-banner {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #06C755; color: #fff;
+    padding: 18px 20px; margin-top: 24px; gap: 14px;
+  }
+  .line-banner div strong { display: block; font-size: 0.92rem; margin-bottom: 2px; }
+  .line-banner div span { font-size: 0.76rem; opacity: 0.9; }
+  .line-banner a {
+    background: #fff; color: #06C755; font-weight: 700; font-size: 0.82rem;
+    padding: 10px 18px; flex-shrink: 0; white-space: nowrap;
+  }
+  .line-banner a:hover { background: rgba(255,255,255,0.9); }
+
+  form.apply-form { background: var(--cream); padding: 38px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group.full { grid-column: 1 / -1; }
+  label { display: block; font-size: 0.78rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: 0.02em; }
+  label .req { color: #B23A1F; margin-left: 4px; }
+  input, select, textarea {
+    width: 100%; padding: 12px 14px;
+    border: 1px solid rgba(13,13,13,0.18);
+    font-family: var(--font-body); font-size: 0.92rem;
+    background: var(--white); color: var(--ink);
+  }
+  textarea { resize: vertical; min-height: 90px; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(217,142,43,0.15); }
+  .form-submit {
+    width: 100%; background: var(--gold); color: var(--ink); border: none;
+    padding: 17px; font-family: var(--font-display); font-weight: 600; font-size: 0.95rem;
+    letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; margin-top: 8px;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .form-disclaimer { font-size: 0.74rem; color: rgba(13,13,13,0.5); margin-top: 12px; text-align: center; }
+  .form-note-banner { background: rgba(217,142,43,0.12); border: 1px solid rgba(217,142,43,0.35); color: #6b4710; font-size: 0.78rem; padding: 10px 14px; margin-bottom: 20px; }
+
+  /* ===== Footer ===== */
+  footer { background: #060606; color: rgba(245,241,232,0.6); padding: 56px 0 28px; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid var(--line); }
+  .footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .footer-brand img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--gold); background: var(--cream); padding: 2px; }
+  .footer-brand-text { font-family: var(--font-display); color: var(--white); font-size: 1rem; letter-spacing: 0.03em; }
+  .footer-grid p { font-size: 0.84rem; }
+  .footer-cta {
+    display: inline-block;
+    margin-top: 22px;
+    background: var(--gold);
+    color: var(--ink) !important;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 15px 40px;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .footer-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .footer-col h4 { color: var(--white); font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; }
+  .footer-col ul { display: grid; gap: 10px; font-size: 0.84rem; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; font-size: 0.76rem; flex-wrap: wrap; gap: 10px; }
+
+  /* ===== Toast ===== */
+  .toast {
+    position: fixed; bottom: 28px; left: 50%; transform: translate(-50%, 20px);
+    background: var(--gold); color: var(--ink);
+    padding: 16px 26px; font-weight: 700; font-size: 0.9rem;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.4);
+    opacity: 0; pointer-events: none; transition: opacity .3s ease, transform .3s ease; z-index: 999;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 980px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .coach-grid { grid-template-columns: repeat(2, 1fr); }
+    .voice-grid { grid-template-columns: 1fr; }
+    .apply-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .course-card { grid-template-columns: 1fr; text-align: left; gap: 14px; }
+    .course-price { text-align: left; }
+    .hero-crest { display: none; }
+  }
+  @media (max-width: 760px) {
+    .nav-links {
+      position: fixed; top: 76px; left: 0; right: 0;
+      background: var(--ink);
+      flex-direction: column; padding: 24px; gap: 18px;
+      border-bottom: 1px solid var(--line);
+      transform: translateY(-110%); transition: transform .3s ease; z-index: 99;
+    }
+    .nav-links.open { transform: translateY(0); }
+    .nav-toggle { display: flex; }
+    .nav-cta { text-align: center; }
+    .coach-grid { grid-template-columns: 1fr; }
+    .week-grid { grid-template-columns: repeat(7, minmax(72px,1fr)); overflow-x: auto; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-cta { display: block; width: 100%; box-sizing: border-box; text-align: center; }
+    .section-pad { padding: 76px 0; }
+    .line-banner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <img src="vertex-logo.png" alt="VERTEX FOOTBALL ACADEMY ロゴ">
+      <span class="brand-text">VERTEX<small>FOOTBALL ACADEMY</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">アカデミーについて</a>
+      <a href="#coach">指導者</a>
+      <a href="#courses">コース・料金</a>
+      <a href="#schedule">スケジュール</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#apply" class="nav-cta">無料体験</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg-glow"></div>
+  <img class="hero-crest" src="vertex-logo.png" alt="">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">
+      <svg class="bolt" viewBox="0 0 14 18" fill="none"><path d="M8 0L0 10H6L4 18L14 6H7L8 0Z" fill="#D98E2B"/></svg>
+      VERTEX FOOTBALL ACADEMY
+    </div>
+    <h1>個の力と知性で、<br><span class="accent">頂点</span>を目指す。</h1>
+    <p class="lead">横浜市瀬谷区を拠点に、幼児〜小学生を対象としたサッカーアカデミー。「個（Individual）」「知性（Intelligence）」「影響（Impact）」を育む指導で、ピッチの中でも外でも輝く力を育てます。</p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn btn-primary">無料体験に申し込む</a>
+      <a href="https://lin.ee/PY5wGcG" target="_blank" rel="noopener" class="btn btn-line">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.69 2 10.2c0 4.02 3.47 7.39 8.16 8.1.32.07.74.21.85.49.1.25.07.65.03.91l-.13.84c-.04.25-.2.97.85.53 1.05-.44 5.68-3.35 7.75-5.73C21.18 13.5 22 11.95 22 10.2 22 5.69 17.52 2 12 2z"/></svg>
+        LINEで相談する
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>3〜12歳</strong><span>対象年齢</span></div>
+      <div class="hero-stat"><strong>週6日</strong><span>開講日</span></div>
+      <div class="hero-stat"><strong>瀬谷区</strong><span>活動エリア</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="line"></span>SCROLL</div>
+</section>
+
+<div class="diag-divider"></div>
+
+<!-- ============ ABOUT ============ -->
+<section class="about section-pad" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal about-visual">
+        <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800&q=80" alt="ピッチで練習する子どもたち">
+        <div class="about-visual-tag">瀬谷区を拠点に活動中</div>
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">
+          <svg class="bolt" viewBox="0 0 14 18" fill="none"><path d="M8 0L0 10H6L4 18L14 6H7L8 0Z" fill="#D98E2B"/></svg>
+          ABOUT VERTEX
+        </div>
+        <h2>INDIVIDUAL. INTELLIGENCE. IMPACT.</h2>
+        <p style="margin-top:20px; color:rgba(13,13,13,0.65); font-size:0.98rem;">
+          VERTEX FOOTBALL ACADEMYは、技術指導だけにとどまらず、子どもたちが自ら考え、判断し、仲間とともに成長する力を育むアカデミーです。一人ひとりの個性（Individual）を伸ばし、サッカーを通じた知性（Intelligence）を磨き、その先にある社会への影響力（Impact）を見据えて指導します。
+        </p>
+
+        <div class="pillar-list">
+          <div class="pillar-item">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z" stroke="#D98E2B" stroke-width="1.6"/></svg></div>
+            <div><h3>Individual｜個の力</h3><p>年齢・レベルに応じた段階的メニューで、一人ひとりの個性と技術を伸ばします。</p></div>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 4l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6z" stroke="#D98E2B" stroke-width="1.6"/></svg></div>
+            <div><h3>Intelligence｜知性</h3><p>状況判断力と戦術理解を育み、ピッチの中で「考える力」を養います。</p></div>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#D98E2B" stroke-width="1.6"/><path d="M12 7v5l4 2" stroke="#D98E2B" stroke-width="1.6"/></svg></div>
+            <div><h3>Impact｜影響</h3><p>仲間を思いやる姿勢と挑戦する心を育て、地域・社会に良い影響を与える人材を育てます。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COACH ============ -->
+<section class="coach section-pad on-dark" id="coach">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <svg class="bolt" viewBox="0 0 14 18" fill="none"><path d="M8 0L0 10H6L4 18L14 6H7L8 0Z" fill="#D98E2B"/></svg>
+        COACHING STAFF
+      </div>
+      <h2>指導者紹介</h2>
+      <p>※ 現在、指導者情報は準備中です。下記はサンプル表示です。後ほど正式な情報に差し替えます。</p>
+    </div>
+    <div class="coach-grid">
+      <div class="coach-card reveal">
+        <div class="coach-photo"><img src="https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=500&q=80" alt="コーチ写真（仮）"></div>
+        <div class="coach-body">
+          <div class="coach-role">ヘッドコーチ（仮）</div>
+          <div class="coach-name">山田 太郎（仮）</div>
+          <p class="coach-desc">指導歴・経歴のサンプルテキストです。実際のプロフィールに差し替え予定です。</p>
+        </div>
+      </div>
+      <div class="coach-card reveal">
+        <div class="coach-photo"><img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=500&q=80" alt="コーチ写真（仮）"></div>
+        <div class="coach-body">
+          <div class="coach-role">コーチ（仮）</div>
+          <div class="coach-name">佐藤 花子（仮）</div>
+          <p class="coach-desc">指導歴・経歴のサンプルテキストです。実際のプロフィールに差し替え予定です。</p>
+        </div>
+      </div>
+      <div class="coach-card reveal">
+        <div class="coach-photo"><img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=500&q=80" alt="コーチ写真（仮）"></div>
+        <div class="coach-body">
+          <div class="coach-role">コーチ（仮）</div>
+          <div class="coach-name">鈴木 一郎（仮）</div>
+          <p class="coach-desc">指導歴・経歴のサンプルテキストです。実際のプロフィールに差し替え予定です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COURSES ============ -->
+<section class="courses section-pad" id="courses">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <svg class="bolt" viewBox="0 0 14 18" fill="none"><path d="M8 0L0 10H6L4 18L14 6H7L8 0Z" fill="#D98E2B"/></svg>
+        COURSES &amp; FEES
+      </div>
+      <h2>コース・料金</h2>
+      <p>年齢・レベルに合わせて4つのコースをご用意しています。</p>
+    </div>
+
+    <div class="course-list">
+      <div class="course-card reveal">
+        <div class="course-title-wrap">
+          <span class="course-tag">年中〜年長</span>
+          <h3>キッズクラス</h3>
+          <p>ボールに慣れることを目的に、遊びの中で体を動かす楽しさを学びます。</p>
+        </div>
+        <div class="course-meta"><strong>曜日・時間</strong>土曜日 10:00〜11:00</div>
+        <div class="course-meta"><strong>定員</strong>各回 15名程度</div>
+        <div class="course-price"><strong>¥5,000<span style="font-size:0.78rem;">/月</span></strong><span>+ 入会金（仮）</span></div>
+      </div>
+
+      <div class="course-card is-featured reveal">
+        <div class="course-title-wrap">
+          <span class="course-tag">小学1〜3年</span>
+          <h3>ジュニアクラス</h3>
+          <p>基礎技術の習得とミニゲームを中心に、サッカーの楽しさを広げます。</p>
+        </div>
+        <div class="course-meta"><strong>曜日・時間</strong>土曜日 11:00〜12:30</div>
+        <div class="course-meta"><strong>定員</strong>各回 20名程度</div>
+        <div class="course-price"><strong>¥7,000<span style="font-size:0.78rem;">/月</span></strong><span>+ 入会金（仮）</span></div>
+      </div>
+
+      <div class="course-card reveal">
+        <div class="course-title-wrap">
+          <span class="course-tag">小学4〜6年</span>
+          <h3>アドバンスクラス</h3>
+          <p>戦術理解と個人技術を高め、試合での実践力を養うコースです。</p>
+        </div>
+        <div class="course-meta"><strong>曜日・時間</strong>日曜日 09:00〜11:00</div>
+        <div class="course-meta"><strong>定員</strong>各回 20名程度</div>
+        <div class="course-price"><strong>¥9,000<span style="font-size:0.78rem;">/月</span></strong><span>+ 入会金（仮）</span></div>
+      </div>
+
+      <div class="course-card reveal">
+        <div class="course-title-wrap">
+          <span class="course-tag">全年齢</span>
+          <h3>スペシャルクラス</h3>
+          <p>普段は別コースの子どもたちが一緒にプレーする、月1回の交流型クラスです。</p>
+        </div>
+        <div class="course-meta"><strong>曜日・時間</strong>第2土曜 13:00〜15:00</div>
+        <div class="course-meta"><strong>定員</strong>40名程度</div>
+        <div class="course-price"><strong>¥1,500<span style="font-size:0.78rem;">/回</span></strong><span>都度参加OK</span></div>
+      </div>
+    </div>
+
+    <p class="course-note">※ 表示している定員・スケジュールの一部は仮の内容です。正式決定後に更新いたします。</p>
+  </div>
+</section>
+
+<!-- ============ SCHEDULE ============ -->
+<section class="schedule section-pad on-dark" id="schedule">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <svg class="bolt" viewBox="0 0 14 18" fill="none"><path d="M8 0L0 10H6L4 18L14 6H7L8 0Z" fill="#D98E2B"/></svg>
+        WEEKLY SCHEDULE
+      </div>
+      <h2>週間スケジュール</h2>
+      <p>曜日ごとの開講コース一覧です。会場の詳細は申込み後にご案内します。</p>
+    </div>
+    <div class="week-grid reveal">
+      <div class="day-col"><div class="day-name">月</div><div class="day-class empty">休み</div></div>
+      <div class="day-col"><div class="day-name">火</div><div class="day-class empty">休み</div></div>
+      <div class="day-col"><div class="day-name">水</div><div class="day-class empty">休み</div></div>
+      <div class="day-col"><div class="day-name">木</div><div class="day-class empty">休み</div></div>
+      <div class="day-col"><div class="day-name">金</div><div class="day-class empty">休み</div></div>
+      <div class="day-col active"><div class="day-name">土</div><div class="day-class">キッズ<br>10:00-11:00<br><br>ジュニア<br>11:00-12:30<br><br>(第2)スペシャル<br>13:00-15:00</div></div>
+      <div class="day-col active"><div class="day-name">日</div><div class="day-class">アドバンス<br>09:00-11:00</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MONTHLY CALENDAR ============ -->
+<section class="month-cal section-pad on-dark" id="month-cal">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <svg class="bolt" viewBox="0 0 14 18" fill="none"><path d="M8 0L0 10H6L4 18L14 6H7L8 0Z" fill="#D98E2B"/></svg>
+        MONTHLY CALENDAR
+      </div>
+      <h2>2026年7月のスケジュール</h2>
+      <p>7月は、11日・18日・25日がお休みです。その他の土日は通常開講します。</p>
+    </div>
+
+    <div class="reveal">
+      <div class="month-cal-legend">
+        <div class="legend-item"><span class="legend-dot on"></span>開講日</div>
+        <div class="legend-item"><span class="legend-dot off"></span>お休み</div>
+        <div class="legend-item"><span class="legend-dot holiday"></span>祝日</div>
+      </div>
+
+      <div class="cal-weekdays">
+        <span class="sun">日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span class="sat">土</span>
+      </div>
+
+      <div class="cal-grid">
+        <!-- Week 1: 6/28-7/4 -->
+        <div class="cal-cell empty-cell"></div>
+        <div class="cal-cell empty-cell"></div>
+        <div class="cal-cell empty-cell"></div>
+        <div class="cal-cell"><span class="date-num">1</span></div>
+        <div class="cal-cell"><span class="date-num">2</span></div>
+        <div class="cal-cell"><span class="date-num">3</span></div>
+        <div class="cal-cell is-active"><span class="date-num">4</span><span class="cal-tag">キッズ/ジュニア</span></div>
+
+        <!-- Week 2: 7/5-7/11 -->
+        <div class="cal-cell is-active"><span class="date-num">5</span><span class="cal-tag">アドバンス</span></div>
+        <div class="cal-cell"><span class="date-num">6</span></div>
+        <div class="cal-cell"><span class="date-num">7</span></div>
+        <div class="cal-cell"><span class="date-num">8</span></div>
+        <div class="cal-cell"><span class="date-num">9</span></div>
+        <div class="cal-cell"><span class="date-num">10</span></div>
+        <div class="cal-cell is-off"><span class="date-num">11</span><span class="cal-tag off-label">お休み</span></div>
+
+        <!-- Week 3: 7/12-7/18 -->
+        <div class="cal-cell is-active"><span class="date-num">12</span><span class="cal-tag">アドバンス</span></div>
+        <div class="cal-cell"><span class="date-num">13</span></div>
+        <div class="cal-cell"><span class="date-num">14</span></div>
+        <div class="cal-cell"><span class="date-num">15</span></div>
+        <div class="cal-cell"><span class="date-num">16</span></div>
+        <div class="cal-cell"><span class="date-num">17</span></div>
+        <div class="cal-cell is-off"><span class="date-num">18</span><span class="cal-tag off-label">お休み</span></div>
+
+        <!-- Week 4: 7/19-7/25 -->
+        <div class="cal-cell is-active"><span class="date-num">19</span><span class="cal-tag">アドバンス</span></div>
+        <div class="cal-cell is-holiday"><span class="date-num">20</span><span class="cal-tag holiday-label">海の日</span></div>
+        <div class="cal-cell"><span class="date-num">21</span></div>
+        <div class="cal-cell"><span class="date-num">22</span></div>
+        <div class="cal-cell"><span class="date-num">23</span></div>
+        <div class="cal-cell"><span class="date-num">24</span></div>
+        <div class="cal-cell is-off"><span class="date-num">25</span><span class="cal-tag off-label">お休み</span></div>
+
+        <!-- Week 5: 7/26-8/1 -->
+        <div class="cal-cell is-active"><span class="date-num">26</span><span class="cal-tag">アドバンス</span></div>
+        <div class="cal-cell"><span class="date-num">27</span></div>
+        <div class="cal-cell"><span class="date-num">28</span></div>
+        <div class="cal-cell"><span class="date-num">29</span></div>
+        <div class="cal-cell"><span class="date-num">30</span></div>
+        <div class="cal-cell"><span class="date-num">31</span></div>
+        <div class="cal-cell empty-cell"></div>
+      </div>
+
+      <p class="month-cal-note">※ 11日・18日・25日（土曜）はキッズ・ジュニアクラスがお休みです。翌日の日曜（アドバンスクラス）は通常通り開講します。スケジュールは変更になる場合があります。最新情報はLINEでもご案内します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery section-pad" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <svg class="bolt" viewBox="0 0 14 18" fill="none"><path d="M8 0L0 10H6L4 18L14 6H7L8 0Z" fill="#D98E2B"/></svg>
+        GALLERY
+      </div>
+      <h2>活動の様子</h2>
+      <p>練習や試合の風景です（イメージ画像）。</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item tall"><img src="https://images.unsplash.com/photo-1614632537423-1e6c2e7e0aab?w=500&q=80" alt="練習風景"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=500&q=80" alt="練習風景"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1592656094267-764a45160876?w=500&q=80" alt="練習風景"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1577471488278-16eec37ffcc2?w=500&q=80" alt="練習風景"></div>
+      <div class="gallery-item tall"><img src="https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=500&q=80" alt="練習風景"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=500&q=80" alt="練習風景"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOICE ============ -->
+<section class="voice section-pad" id="voice">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <svg class="bolt" viewBox="0 0 14 18" fill="none"><path d="M8 0L0 10H6L4 18L14 6H7L8 0Z" fill="#D98E2B"/></svg>
+        VOICE
+      </div>
+      <h2>保護者の声</h2>
+      <p>※ サンプルの声です。実際の声が集まり次第、差し替えます。</p>
+    </div>
+    <div class="voice-grid">
+      <div class="voice-card reveal">
+        <div class="voice-quote-mark">"</div>
+        <p class="body">入会前は人見知りでしたが、今では自分からチームメイトに声をかけるようになりました。コーチの寄り添い方に感謝しています。</p>
+        <div class="voice-who">小学2年生 保護者<span>・ジュニアクラス</span></div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-quote-mark">"</div>
+        <p class="body">未経験から始めましたが、無理なくステップアップできるカリキュラムで、毎週楽しそうに通っています。</p>
+        <div class="voice-who">年長 保護者<span>・キッズクラス</span></div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-quote-mark">"</div>
+        <p class="body">技術だけでなく、試合中の判断力も伸びてきたと感じます。コーチが一人ひとりをよく見てくれているのが分かります。</p>
+        <div class="voice-who">小学5年生 保護者<span>・アドバンスクラス</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq section-pad" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <svg class="bolt" viewBox="0 0 14 18" fill="none"><path d="M8 0L0 10H6L4 18L14 6H7L8 0Z" fill="#D98E2B"/></svg>
+        FAQ
+      </div>
+      <h2>よくある質問</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">サッカー未経験でも大丈夫ですか？<span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">はい、問題ありません。多くのお子様が未経験から始めています。基礎から丁寧に指導しますのでご安心ください。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">体験は何回まで参加できますか？<span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">無料体験は1回ご参加いただけます。お子様の様子を見てから入会をご検討いただけます。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">必要な持ち物はありますか？<span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">運動できる服装、運動靴、ボール（お持ちでない場合は貸し出し可）、水分補給用の飲み物をご用意ください。詳細は体験申込み後にご案内します。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">兄弟姉妹で違うコースに参加できますか？<span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">可能です。年齢に応じたコースへそれぞれご案内いたします。お申込みフォームにその旨をご記入ください。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">LINEで直接相談できますか？<span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">はい、公式LINEからお気軽にご相談いただけます。ページ下部の「LINEで相談する」ボタンからご登録ください。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPLY ============ -->
+<section class="apply section-pad on-dark" id="apply">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">
+        <svg class="bolt" viewBox="0 0 14 18" fill="none"><path d="M8 0L0 10H6L4 18L14 6H7L8 0Z" fill="#D98E2B"/></svg>
+        JOIN VERTEX
+      </div>
+      <h2>無料体験申し込み</h2>
+      <p>まずは無料体験で、VERTEXの雰囲気を感じてください。コーチ一同、お待ちしております。</p>
+    </div>
+
+    <div class="apply-grid">
+      <div class="reveal">
+        <div class="apply-info-card">
+          <h3>お申込みの流れ</h3>
+          <div class="apply-info-item"><span class="ico">01</span><div><strong>フォーム送信</strong>必要事項をご入力のうえ送信してください。</div></div>
+          <div class="apply-info-item"><span class="ico">02</span><div><strong>担当者よりご連絡</strong>1〜2営業日以内に日程をご案内します。</div></div>
+          <div class="apply-info-item"><span class="ico">03</span><div><strong>無料体験に参加</strong>当日は動きやすい服装でお越しください。</div></div>
+          <hr style="border-color: var(--line); margin: 20px 0;">
+          <div class="apply-info-item"><span class="ico">📍</span><div><strong>活動場所</strong>瀬谷区内グラウンド（詳細は申込み後にご案内）</div></div>
+          <div class="apply-info-item"><span class="ico">✉️</span><div><strong>お問い合わせ</strong>info@vertex-fa.example.com（仮）</div></div>
+        </div>
+
+        <div class="line-banner">
+          <div>
+            <strong>お急ぎの方はLINEが便利です</strong>
+            <span>体験予約・質問はLINEからすぐにご相談いただけます</span>
+          </div>
+          <a href="https://lin.ee/PY5wGcG" target="_blank" rel="noopener">友だち追加</a>
+        </div>
+      </div>
+
+      <form class="apply-form reveal" id="applyForm">
+        <div class="form-note-banner">
+          ※ このフォームは見た目のみのサンプルです。送信しても実際には届きません。今後 Google フォーム等の外部サービスと連携予定です。
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="parentName">保護者氏名<span class="req">必須</span></label>
+            <input type="text" id="parentName" name="parentName" placeholder="瀬谷 花子" required>
+          </div>
+          <div class="form-group">
+            <label for="childName">お子様氏名<span class="req">必須</span></label>
+            <input type="text" id="childName" name="childName" placeholder="瀬谷 太郎" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="childAge">お子様の年齢<span class="req">必須</span></label>
+            <select id="childAge" name="childAge" required>
+              <option value="">選択してください</option>
+              <option>年中</option><option>年長</option>
+              <option>小学1年生</option><option>小学2年生</option><option>小学3年生</option>
+              <option>小学4年生</option><option>小学5年生</option><option>小学6年生</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="course">希望コース<span class="req">必須</span></label>
+            <select id="course" name="course" required>
+              <option value="">選択してください</option>
+              <option>キッズクラス（年中〜年長）</option>
+              <option>ジュニアクラス（小1〜3年）</option>
+              <option>アドバンスクラス（小4〜6年）</option>
+              <option>スペシャルクラス</option>
+              <option>まだ決めていない</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">電話番号<span class="req">必須</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="090-1234-5678" required>
+          </div>
+          <div class="form-group">
+            <label for="email">メールアドレス<span class="req">必須</span></label>
+            <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label for="message">ご質問・ご要望（任意）</label>
+          <textarea id="message" name="message" placeholder="サッカー経験の有無や、ご質問などあればご記入ください"></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">この内容で送信する</button>
+        <p class="form-disclaimer">送信後、担当者より1〜2営業日以内にご連絡いたします。</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="vertex-logo.png" alt="VERTEX FOOTBALL ACADEMY ロゴ">
+          <span class="footer-brand-text">VERTEX FOOTBALL ACADEMY</span>
+        </div>
+        <p>横浜市瀬谷区を拠点とする、幼児〜小学生のためのサッカーアカデミー。<br>Individual. Intelligence. Impact.</p>
+        <a href="#apply" class="footer-cta">無料体験に申し込む</a>
+      </div>
+      <div class="footer-col">
+        <h4>サイトメニュー</h4>
+        <ul>
+          <li><a href="#about">アカデミーについて</a></li>
+          <li><a href="#coach">指導者紹介</a></li>
+          <li><a href="#courses">コース・料金</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="#apply">無料体験申込み</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>お問い合わせ</h4>
+        <ul>
+          <li>瀬谷区内グラウンド（詳細は申込み後）</li>
+          <li>info@vertex-fa.example.com（仮）</li>
+          <li><a href="https://lin.ee/PY5wGcG" target="_blank" rel="noopener">公式LINEで相談する</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VERTEX FOOTBALL ACADEMY</span>
+      <span>本サイトの内容は一部準備中です</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">送信内容を確認しました（サンプル動作です）</div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    const ans = item.querySelector('.faq-a');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null; });
+      if (!isOpen) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+    });
+  });
+
+  const form = document.getElementById('applyForm');
+  const toast = document.getElementById('toast');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3200);
+  });
+</script>
+
+</body>
+</html>
